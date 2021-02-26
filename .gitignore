@@ -1,3 +1,4 @@
-
-.vs/Character Making File Tool/v16/.suo
-PSO2 Salon Tool.7z
+.vs/
+*.user
+*bin/
+*obj/

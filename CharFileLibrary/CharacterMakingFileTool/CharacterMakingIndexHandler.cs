@@ -7,10 +7,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using static AquaModelLibrary.VTBFMethods;
 
-namespace Character_Making_File_Tool
+namespace CharacterMakingFileTool
 {
     public class CharacterMakingIndexHandler
     {
@@ -31,7 +30,7 @@ namespace Character_Making_File_Tool
             catch
             {
                 invalid = true;
-                MessageBox.Show("Unable to read .cmx files. Please check permissions and set an appropriate pso2_bin Path.");
+                //MessageBox.Show("Unable to read .cmx files. Please check permissions and set an appropriate pso2_bin Path.");
             }
         }
 

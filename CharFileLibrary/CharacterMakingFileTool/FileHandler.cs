@@ -6,10 +6,9 @@ using System.Numerics;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using static Character_Making_File_Tool.CharacterHandler;
+using static CharacterMakingFileTool.CharacterHandler;
 
-namespace Character_Making_File_Tool
+namespace CharacterMakingFileTool
 {
     public class FileHandler
     {

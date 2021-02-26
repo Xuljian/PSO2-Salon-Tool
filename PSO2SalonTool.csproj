@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>PSO2SalonTool</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CharFileLibrary\**" />
+    <EmbeddedResource Remove="CharFileLibrary\**" />
+    <None Remove="CharFileLibrary\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="CharFileLibrary\CharFileLibrary.csproj" />
+  </ItemGroup>
+
+</Project>

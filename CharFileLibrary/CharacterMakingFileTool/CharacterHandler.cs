@@ -7,10 +7,9 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
-using System.Windows.Forms;
 using zamboni;
 
-namespace Character_Making_File_Tool
+namespace CharacterMakingFileTool
 {
     //Thanks to Agrajag for CharacterCrypt.
     //Thanks to Chikinface/Raujinn for .xxp and .cml struct information as well as for code from CMLParser for reference. 
@@ -610,7 +609,7 @@ namespace Character_Making_File_Tool
                         return;
                     default:
                         windowVersion = "";
-                        MessageBox.Show("Huh... that's not supposed to happen. Sorry about that!");
+                        //MessageBox.Show("Huh... that's not supposed to happen. Sorry about that!");
                         return;
                 }
                 int fileSize = fileSizes[saveVersion];
@@ -691,7 +690,7 @@ namespace Character_Making_File_Tool
                                 tagStructs[id] = new int[] { streamReader.Read<sbyte>(), streamReader.Read<sbyte>(), streamReader.Read<sbyte>(), streamReader.Read<sbyte>() };
                                 break;
                             default:
-                                MessageBox.Show(inFilename + " " + subStructDataType + " Position: " + streamReader.Position());
+                                //MessageBox.Show(inFilename + " " + subStructDataType + " Position: " + streamReader.Position());
                                 break;
                         }
                     }
@@ -938,8 +937,8 @@ namespace Character_Making_File_Tool
                         ReadV8_V9(streamReader);
                         break;
                     default:
-                        MessageBox.Show("Error: File version unknown. If this is a proper salon file, please report this!",
-                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //MessageBox.Show("Error: File version unknown. If this is a proper salon file, please report this!",
+                        //    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                 }
 

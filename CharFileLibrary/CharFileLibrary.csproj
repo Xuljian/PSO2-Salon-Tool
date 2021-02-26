@@ -33,9 +33,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AquaModelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\AquaLib\AquaModelLibrary.dll</HintPath>
+    <Reference Include="AquaModelLibrary">
+      <HintPath>..\lib\AquaLib\AquaModelLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
@@ -45,6 +44,9 @@
     </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="NvTriStripDotNet">
+      <HintPath>..\lib\AquaLib\NvTriStripDotNet.dll</HintPath>
     </Reference>
     <Reference Include="Reloaded.Memory, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Reloaded.Memory.3.0.1\lib\net47\Reloaded.Memory.dll</HintPath>
@@ -64,7 +66,6 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,21 +74,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character_Making_File_Tool\CharacterHandler.cs" />
-    <Compile Include="Character_Making_File_Tool\CharacterMakingIndexHandler.cs" />
-    <Compile Include="Character_Making_File_Tool\FileHandler.cs" />
+    <Compile Include="CharacterMakingFileTool\CharacterHandler.cs" />
+    <Compile Include="CharacterMakingFileTool\CharacterMakingIndexHandler.cs" />
+    <Compile Include="CharacterMakingFileTool\FileHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="zamboni\BlewFish.cs" />
-    <Compile Include="zamboni\Crc32.cs" />
+    <Compile Include="Zamboni\BlewFish.cs" />
+    <Compile Include="Zamboni\Crc32.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ice_ext.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
