@@ -31,11 +31,9 @@ namespace PSO2_Salon_Tool2
                     if (validationResult)
                     {
                         Process();
+                        Console.WriteLine("Complete!\nPress any key to continue...");
+                        Console.ReadLine();
                     }
-
-                    //Console.WriteLine("output " + outputPath);
-                    //Console.WriteLine("ext " + ext);
-                    //Console.WriteLine("input " + inputPath);
                 }
                 else
                 {
@@ -46,6 +44,8 @@ namespace PSO2_Salon_Tool2
                         $"The libraries used in this solution are from https://github.com/omegatari/PSO2-Salon-Tool, only the Character_Making_File_Tool library along with its dependencies is used.\n\n";
 
                     Console.Write(message);
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
                 }
             }
             catch (Exception e)
@@ -57,6 +57,8 @@ namespace PSO2_Salon_Tool2
                     $"The libraries used in this solution are from https://github.com/omegatari/PSO2-Salon-Tool, only the Character_Making_File_Tool library along with its dependencies is used.\n\n";
 
                 Console.Write(message);
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadLine();
             }
         }
 
