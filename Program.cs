@@ -12,6 +12,7 @@ namespace PSO2_Salon_Tool2
         static string ext = "mhp";
         static string inputPath = null;
         static string inputFilename = null;
+        static bool toWait = false;
         static List<string> ALLOWED_EXT = new List<string>()
         {
             "fhp", "fnp", "fcp", "fdp",
@@ -31,8 +32,11 @@ namespace PSO2_Salon_Tool2
                     if (validationResult)
                     {
                         Process();
-                        Console.WriteLine("Complete!\nPress any key to continue...");
-                        Console.ReadLine();
+                        if (toWait)
+                        {
+                            Console.WriteLine("Complete!\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
                     }
                 }
                 else
@@ -44,8 +48,11 @@ namespace PSO2_Salon_Tool2
                         $"The libraries used in this solution are from https://github.com/omegatari/PSO2-Salon-Tool, only the Character_Making_File_Tool library along with its dependencies is used.\n\n";
 
                     Console.Write(message);
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadLine();
+                    if (toWait)
+                    {
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadLine();
+                    }
                 }
             }
             catch (Exception e)
@@ -57,8 +64,11 @@ namespace PSO2_Salon_Tool2
                     $"The libraries used in this solution are from https://github.com/omegatari/PSO2-Salon-Tool, only the Character_Making_File_Tool library along with its dependencies is used.\n\n";
 
                 Console.Write(message);
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadLine();
+                if (toWait)
+                {
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+                }
             }
         }
 
@@ -135,6 +145,11 @@ namespace PSO2_Salon_Tool2
                     if (arg.ToLower() == "-ext")
                     {
                         extFlag = true;
+                        occupied = true;
+                    }
+                    if (arg.ToLower() == "-w")
+                    {
+                        toWait = true;
                         occupied = true;
                     }
                     if (!occupied)
