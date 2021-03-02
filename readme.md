@@ -1,7 +1,8 @@
 # PSO2 SALON TOOL  
 Console version of the tool made by Shadowth117 [Link to his repo](https://github.com/Shadowth117/PSO2-Salon-Tool)  
 -o for output path (No filename specified required, it will use the input filename as the output filename)  
--ext is the type of character file (fhp, fnp, fcp, fdp, mhp, mnp, mcp, mdp)
+-ext is the type of character file (fhp, fnp, fcp, fdp, mhp, mnp, mcp, mdp)  
+-na is for NA height fix, if you want the original height ignore this option
 
 ## Example
 Argument example: "C:\Data\npc_91.cml" -o "C:\Data" -ext fdp  
