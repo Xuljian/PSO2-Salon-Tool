@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace PSO2_Salon_Tool2
+namespace PSO2SalonTool
 {
     class Program
     {
         static string outputPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
-        static string ext = "mhp";
+        static string ext = "default";
+        static bool fixNaHeight = false;
         static string inputPath = null;
         static string inputFilename = null;
         static bool toWait = false;
@@ -17,6 +18,7 @@ namespace PSO2_Salon_Tool2
         {
             "fhp", "fnp", "fcp", "fdp",
             "mhp", "mnp", "mcp", "mdp",
+            "default"
         };
 
         static void Main(string[] args)
@@ -44,6 +46,7 @@ namespace PSO2_Salon_Tool2
                     string message = $"You would need to run this program with a batch file to utilize the 2 options that you can pass into this program\n" +
                         $"1. -o, this option is to set the output path of the processed / converted file to its respective folder\n" +
                         $"2. -ext, this option is to set the race along with the gender of your choice. Example: fhp.\n" +
+                        $"3. -na this option is to fix na height problem. Not specifying this will give you the height given by the CML file" +
                         $"PS: this program currently only supports .cml files" +
                         $"The libraries used in this solution are from https://github.com/omegatari/PSO2-Salon-Tool, only the Character_Making_File_Tool library along with its dependencies is used.\n\n";
 
@@ -60,6 +63,7 @@ namespace PSO2_Salon_Tool2
                 string message = $"You would need to run this program with a batch file to utilize the 2 options that you can pass into this program\n" +
                     $"1. -o, this option is to set the output path of the processed / converted file to its respective folder\n" +
                     $"2. -ext, this option is to set the race along with the gender of your choice. Example: fhp.\n" +
+                    $"3. -na this option is to fix na height problem. Not specifying this will give you the height given by the CML file" +
                     $"PS: this program currently only supports .cml files" +
                     $"The libraries used in this solution are from https://github.com/omegatari/PSO2-Salon-Tool, only the Character_Making_File_Tool library along with its dependencies is used.\n\n";
 
@@ -76,7 +80,50 @@ namespace PSO2_Salon_Tool2
         {
             CharacterHandler characterHandler = new CharacterHandler();
             characterHandler.ParseCML(inputPath);
-            characterHandler.EncryptAndSaveFile($"{outputPath}\\{inputFilename}.{ext}", 0, true, false, out string windowVersion);
+
+            if (ext.ToLower() == "default")
+            {
+                ext = "p";
+                switch ((Race)(int)characterHandler.xxpGeneral.baseDOC.race)
+                {
+                    case Race.Cast:
+                        {
+                            ext = "c" + ext;
+                            break;
+                        }
+                    case Race.Deuman:
+                        {
+                            ext = "d" + ext;
+                            break;
+                        }
+                    case Race.Human:
+                        {
+                            ext = "h" + ext;
+                            break;
+                        }
+                    case Race.Newman:
+                        {
+                            ext = "n" + ext;
+                            break;
+                        }
+                }
+                switch ((Gender)(int)characterHandler.xxpGeneral.baseDOC.gender)
+                {
+                    case Gender.Female:
+                        {
+                            ext = "f" + ext;
+                            break;
+                        }
+                    case Gender.Male:
+                        {
+                            ext = "m" + ext;
+                            break;
+                        }
+                }
+            }
+
+            characterHandler.EncryptAndSaveFile($"{outputPath}\\{inputFilename}.{ext}", 0, fixNaHeight, false, out string windowVersion);
+            Console.Write($"Output: {outputPath}\\{inputFilename}.{ext}");
         }
 
         static bool ValidateAndPrepArguments()
@@ -150,6 +197,11 @@ namespace PSO2_Salon_Tool2
                     if (arg.ToLower() == "-w")
                     {
                         toWait = true;
+                        occupied = true;
+                    }
+                    if (arg.ToLower() == "-na")
+                    {
+                        fixNaHeight = true;
                         occupied = true;
                     }
                     if (!occupied)
