@@ -1,7 +1,7 @@
 # PSO2 SALON TOOL  
 Console version of the tool made by Shadowth117 [Link to his repo](https://github.com/Shadowth117/PSO2-Salon-Tool)  
 -o for output path (No filename specified required, it will use the input filename as the output filename)  
--ext is the type of character file (fhp, fnp, fcp, fdp, mhp, mnp, mcp, mdp)  
+-ext is the type of character file (fhp, fnp, fcp, fdp, mhp, mnp, mcp, mdp), if this option is not provided the default race and gender will be given.  
 -na is for NA height fix, if you want the original height ignore this option
 
 ## Example
